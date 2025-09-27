@@ -1,0 +1,110 @@
+myenv
+.env
+chroma_store
+
+# Virtual environments
+venv/
+env/
+ENV/
+.server/venv/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+.pytest_cache/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# pyenv
+.python-version
+
+# celery beat schedule file
+celerybeat-schedule
+
+# SageMath parsed files
+*.sage.py
+
+# Environments
+.env
+.venv
+
+# Spyder project settings
+.spyderproject
+.spyproject
+
+# Rope project settings
+.ropeproject
+
+# mkdocs documentation
+/site
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pyre type checker
+.pyre/venv/
+__pycache__/
+*.pyc
+*.pyd
+*.dll
+*.lib
+*.dll
+*.pyd
+*.pyc
+__pycache__/
+server/venv/
+*/venv/
+__pycache__/
+*.pyc
+*.pyd
+*.dll
+*.dll
+*.pyd
+*.pyc
+__pycache__/
+*/venv/
+server/venv/
+RAGBOT/venv/
+RAGBOT/venv/
