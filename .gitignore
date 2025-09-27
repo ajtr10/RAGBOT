@@ -85,26 +85,10 @@ dmypy.json
 
 # Pyre type checker
 .pyre/venv/
-__pycache__/
-*.pyc
-*.pyd
-*.dll
-*.lib
 *.dll
 *.pyd
 *.pyc
 __pycache__/
+venv/
 server/venv/
-*/venv/
-__pycache__/
-*.pyc
-*.pyd
-*.dll
-*.dll
-*.pyd
-*.pyc
-__pycache__/
-*/venv/
-server/venv/
-RAGBOT/venv/
 RAGBOT/venv/
