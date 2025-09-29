@@ -8,10 +8,11 @@ langchain
 langchain-community
 langchain-core
 langchain-groq
+langchain-huggingface
 
 Vectorstore
-chromadb
 pinecone
+langchain-pinecone
 
 Embeddings
 sentence-transformers

@@ -4,14 +4,14 @@ uvicorn[standard]
 python-multipart
 
 # LangChain & Ecosystem
-langchain
-langchain-community
-langchain-core
-langchain-groq
+langchain>=0.1.0
+langchain-community>=0.0.20
+langchain-core>=0.3.0
+langchain-groq>=0.0.1
 
 Vectorstore
-chromadb
 pinecone
+langchain-pinecone
 
 Embeddings
 sentence-transformers

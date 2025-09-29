@@ -4,6 +4,7 @@ chroma_store
 
 # Virtual environments
 venv/
+venv_pinecone/
 env/
 ENV/
 .server/venv/
