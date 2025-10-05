@@ -1,6 +1,10 @@
 myenv
 .env
 chroma_store
+*.pyc
+uploaded_pdfs/*.pdf
+.streamlit/
+*.log
 
 # Virtual environments
 venv/
