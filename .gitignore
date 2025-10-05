@@ -1,5 +1,6 @@
 myenv
 .env
+.env.example
 chroma_store
 *.pyc
 uploaded_pdfs/*.pdf
