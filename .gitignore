@@ -98,3 +98,4 @@ __pycache__/
 venv/
 server/venv/
 RAGBOT/venv/
+.env.example
