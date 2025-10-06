@@ -142,21 +142,21 @@ async def ask_question(request: QuestionRequest):
 
         # Initialize Pinecone
         # pinecone.init(api_key=PINECONE_API_KEY, environment=PINECONE_ENV)
-        pc = Pinecone(api_key=PINECONE_API_KEY, environment=PINECONE_ENV)
+        # pc = Pinecone(api_key=PINECONE_API_KEY, environment=PINECONE_ENV)
        
 
         # Initialize embeddings
         embeddings = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L12-v2")
 
         # Create LangChain Pinecone VectorStore
-        index = pc.Index(PINECONE_INDEX_NAME)
+        # index = pc.Index(PINECONE_INDEX_NAME)
         # vectorstore = PineconeVectorStore(index, embeddings.embed_query, "text")
-        vectorstore = PineconeVectorStore.from_existing_index(
-             index,
-             embedding=embeddings,
-             text_key="text"  
-           )
-        
+        vectorstore = PineconeVectorStore(
+                    index_name=PINECONE_INDEX_NAME,
+                    embedding=embeddings,
+                    text_key="text",
+                    pinecone_api_key=PINECONE_API_KEY
+                )
         retriever = vectorstore.as_retriever(search_kwargs={"k": 3})
 
         # Initialize LLM
