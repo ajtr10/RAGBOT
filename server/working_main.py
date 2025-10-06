@@ -178,7 +178,7 @@ async def ask_question(request: QuestionRequest):
 
         response = {
                 "response": result["result"],
-                "sources": list(set([doc.metadata.get("source", "") for doc in result["source_documents"] if doc.metadata.get("source", "")]))
+                "sources": list(set([doc.metadata.get("source", "") for doc in result["source_documents"]]))
             }
 
         logger.info("Query processed successfully")
