@@ -124,7 +124,7 @@ async def ask_question(request: QuestionRequest):
         from langchain_huggingface import HuggingFaceEmbeddings
         from langchain_groq import ChatGroq
         from langchain.chains import RetrievalQA
-        from langchain_community.vectorstores import Pinecone as PineconeVectorStore
+        from langchain_pinecone import PineconeVectorStore
         from pinecone import Pinecone
         import os
 
@@ -150,11 +150,13 @@ async def ask_question(request: QuestionRequest):
 
         # Create LangChain Pinecone VectorStore
         index = pc.Index(PINECONE_INDEX_NAME)
-        vectorstore = PineconeVectorStore(index, embeddings.embed_query, "text")
-        # vectorstore = PineconeVectorStore.from_existing_index(
-        #      index_name=PINECONE_INDEX_NAME,
-        #      embedding=embeddings
-        #                )
+        # vectorstore = PineconeVectorStore(index, embeddings.embed_query, "text")
+        vectorstore = PineconeVectorStore.from_existing_index(
+             index,
+             embedding=embeddings,
+             text_key="text"  
+           )
+        
         retriever = vectorstore.as_retriever(search_kwargs={"k": 3})
 
         # Initialize LLM
