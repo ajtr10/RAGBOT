@@ -1,13 +1,14 @@
+import os
+import sys
+sys.path.insert(0, '/home/ubuntu/RAGBOT')
+from logger import logger
 from fastapi import FastAPI, UploadFile, File, Form, Request
 from fastapi.responses import JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
 from typing import List
 from pydantic import BaseModel
 from dotenv import load_dotenv
-import os
-import sys
-sys.path.insert(0, '/home/ubuntu/RAGBOT')
-from logger import logger
+
 
 load_dotenv()
 
