@@ -1,6 +1,5 @@
 myenv
 .env
-.env.example
 chroma_store
 *.pyc
 uploaded_pdfs/*.pdf
@@ -71,7 +70,6 @@ celerybeat-schedule
 *.sage.py
 
 # Environments
-.env
 .venv
 
 # Spyder project settings
@@ -98,4 +96,3 @@ __pycache__/
 venv/
 server/venv/
 RAGBOT/venv/
-.env.example
