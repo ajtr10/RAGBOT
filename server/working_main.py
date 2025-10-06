@@ -5,7 +5,10 @@ from typing import List
 from pydantic import BaseModel
 from dotenv import load_dotenv
 
-from logger import logger
+try:
+    from .logger import logger
+except ImportError:
+    from logger import logger
 
 
 load_dotenv()
