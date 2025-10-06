@@ -4,6 +4,9 @@ from fastapi.middleware.cors import CORSMiddleware
 from typing import List
 from pydantic import BaseModel
 from dotenv import load_dotenv
+import os
+import sys
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from logger import logger
 
 load_dotenv()
