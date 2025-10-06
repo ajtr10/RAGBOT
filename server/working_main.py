@@ -3,8 +3,6 @@ from fastapi.responses import JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
 from typing import List
 from pydantic import BaseModel
-import sys
-import os
 from dotenv import load_dotenv
 from logger import logger
 
@@ -127,7 +125,7 @@ async def ask_question(request: QuestionRequest):
         from langchain_groq import ChatGroq
         from langchain.chains import RetrievalQA
         from langchain_community.vectorstores import Pinecone as PineconeVectorStore
-        import pinecone
+        from pinecone import Pinecone
         import os
 
         # Env variables
@@ -143,14 +141,19 @@ async def ask_question(request: QuestionRequest):
             }
 
         # Initialize Pinecone
-        pinecone.init(api_key=PINECONE_API_KEY, environment=PINECONE_ENV)
-        index = pinecone.Index(PINECONE_INDEX_NAME)
+        # pinecone.init(api_key=PINECONE_API_KEY, environment=PINECONE_ENV)
+        pc = Pinecone(api_key=PINECONE_API_KEY, environment=PINECONE_ENV)
+        index = pc.Index(PINECONE_INDEX_NAME)
 
         # Initialize embeddings
         embeddings = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L12-v2")
 
         # Create LangChain Pinecone VectorStore
-        vectorstore = PineconeVectorStore(index, embeddings.embed_query, "text")
+        # vectorstore = PineconeVectorStore(index, embeddings.embed_query, "text")
+        vectorstore = PineconeVectorStore.from_existing_index(
+             index_name=PINECONE_INDEX_NAME,
+             embedding=embeddings
+                       )
         retriever = vectorstore.as_retriever(search_kwargs={"k": 3})
 
         # Initialize LLM
