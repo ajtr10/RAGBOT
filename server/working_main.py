@@ -3,6 +3,7 @@ from fastapi.responses import JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
 from typing import List
 from pydantic import BaseModel
+import sys
 import os
 from dotenv import load_dotenv
 from logger import logger
@@ -113,6 +114,8 @@ async def upload_pdfs(files: List[UploadFile] = File(...)):
     except Exception as e:
         logger.exception("Error during pdf upload")
         return JSONResponse(status_code=500, content={"error": str(e)})
+    
+
 @app.post("/ask/")
 async def ask_question(request: QuestionRequest):
     try:
@@ -123,7 +126,7 @@ async def ask_question(request: QuestionRequest):
         from langchain_huggingface import HuggingFaceEmbeddings
         from langchain_groq import ChatGroq
         from langchain.chains import RetrievalQA
-        from langchain.vectorstores import Pinecone as PineconeVectorStore
+        from langchain_community.vectorstores import Pinecone as PineconeVectorStore
         import pinecone
         import os
 
